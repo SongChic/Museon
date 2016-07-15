@@ -27,7 +27,7 @@
 	                   회원가입
 	           <em></em>
 	         </div>
-	         <form action="${ctx }/signProc" class="form-horizontal" method="post">
+	         <form action="${ctx }/signProc" class="form-horizontal" method="post" onSubmit="return false;">
 	            <div class="form-group">
 	               <lable class="col-sm-2 control-label">아이디</lable>
 	               <div class="col-sm-10">
@@ -107,8 +107,8 @@ function validation ( input ) {
 		$.ajax({
 			cache : false,
 			async : false,
-			url : ctx + "/idCheck",
-			method : "post",
+			url : ctx + "/rest/idCheck",
+			method : "POST",
 			data : {
 				userId : input.val()
 			}
@@ -148,8 +148,8 @@ function validation ( input ) {
 		$.ajax({
 			cache : false,
 			async : false,
-			url : ctx + "/emailCheck",
-			method : "post",
+			url : ctx + "/rest/emailCheck",
+			method : "POST",
 			data : {
 				userEmail : input.val()
 			}
@@ -163,6 +163,7 @@ function validation ( input ) {
 }
 
 $form.submit( function ( event ) {
+	event.preventDefault();
 	var submitState = true;
 	submitState = submitValidation( $form );
 	if ( !submitState ) {
@@ -178,21 +179,24 @@ $form.submit( function ( event ) {
 		return false;
 	} 
 	
+	console.log( $form.find(".userEmail").val() )
 	$.ajax({
 		cache : false,
-		url : ctx + "/signProc",
-		method : "post",
+		url : ctx + "/rest/signUpProcess",
+		type : "POST",
 		data : {
-			userId : $form.find(".userId"),
-			userPw : $form.find(".userPw"),
-			userName : $form.find(".userName"),
-			userEmail : $form.find(".userEmail")
+			userId : $form.find(".userId").val(),
+			userPw : $form.find(".userPw").val(),
+			userName : $form.find(".userName").val(),
+			userEamil : $form.find(".userEmail").val()
 		}
 	}).done ( function ( response ) {
 		console.log( response );
 	}).fail ( function ( error ) {
 		
 	});
+	
+	console.log( "b" )
 	return false;
 });
 
