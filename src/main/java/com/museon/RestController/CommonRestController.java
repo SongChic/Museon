@@ -93,12 +93,8 @@ public class CommonRestController {
 		user.setUserName(userName);
 		user.setUserEmail(userEmail);
 		
-		System.out.println( userId );
-		
 		int req = 0;
 		int insertId = userService.signUpProcess( user );
-		
-		System.out.println( insertId );
 		
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
