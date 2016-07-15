@@ -107,7 +107,7 @@ function validation ( input ) {
 		$.ajax({
 			cache : false,
 			async : false,
-			url : ctx + "/idCheck",
+			url : ctx + "/rest/idCheck",
 			method : "post",
 			data : {
 				userId : input.val()
@@ -148,7 +148,7 @@ function validation ( input ) {
 		$.ajax({
 			cache : false,
 			async : false,
-			url : ctx + "/emailCheck",
+			url : ctx + "/rest/emailCheck",
 			method : "post",
 			data : {
 				userEmail : input.val()
@@ -180,7 +180,7 @@ $form.submit( function ( event ) {
 	
 	$.ajax({
 		cache : false,
-		url : ctx + "/signUpProcess",
+		url : ctx + "/rest/signUpProcess",
 		method : "post",
 		data : {
 			userId : $form.find(".userId").val(),

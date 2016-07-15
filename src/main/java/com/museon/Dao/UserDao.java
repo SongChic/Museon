@@ -15,13 +15,14 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
+import com.museon.Interface.UserServiceBean;
 import com.museon.Model.User;
 
 
 // INSERT INTO museon_member (user_id, user_pw, user_name, user_email) VALUES (?, ?, ?, ?)
 
 @Repository("userDao")
-public class UserDao {
+public class UserDao implements UserServiceBean {
 	@Autowired
 	JdbcTemplate jdbcTemplate;
 	

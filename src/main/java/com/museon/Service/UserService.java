@@ -7,10 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.museon.Dao.UserDao;
+import com.museon.Interface.UserServiceBean;
 import com.museon.Model.User;
 
 @Service
-public class UserService {
+public class UserService implements UserServiceBean {
 	@Autowired
 	UserDao userDao;
 	
