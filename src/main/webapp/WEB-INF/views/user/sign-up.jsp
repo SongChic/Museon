@@ -183,10 +183,10 @@ $form.submit( function ( event ) {
 		url : ctx + "/signUpProcess",
 		method : "post",
 		data : {
-			userId : $form.find(".userId"),
-			userPw : $form.find(".userPw"),
-			userName : $form.find(".userName"),
-			userEmail : $form.find(".userEmail")
+			userId : $form.find(".userId").val(),
+			userPw : $form.find(".userPw").val(),
+			userName : $form.find(".userName").val(),
+			userEmail : $form.find(".userEmail").val()
 		}
 	}).done ( function ( response ) {
 		console.log( response );
@@ -244,3 +244,4 @@ function submitValidation () {
 </script>
 
 </body>
+</html>
