@@ -70,9 +70,7 @@ public class UserDao {
 		return 0;
 	}
 	
-	
 	public int signUpProcess ( User user ) {
-		
 		String sql = "insert into museon_member (user_id, user_pw, user_name, user_email) values (?, ?, ?, ?)";
 	
 		Object[] params = {

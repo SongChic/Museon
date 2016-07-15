@@ -179,7 +179,6 @@ $form.submit( function ( event ) {
 		return false;
 	} 
 	
-	console.log( $form.find(".userEmail").val() )
 	$.ajax({
 		cache : false,
 		url : ctx + "/rest/signUpProcess",
@@ -196,7 +195,6 @@ $form.submit( function ( event ) {
 		
 	});
 	
-	console.log( "b" )
 	return false;
 });
 
